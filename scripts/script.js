@@ -22,16 +22,17 @@ startGame()
 
 function startGame() {
 
-    //cria o canvas
-    desenharCanvas()
-
     //sorteia a palavra a ser descoberta
     escolhePalavraOculta()
 
+    //cria o canvas
+    fazerCanvas()
+
     //cria os espaços da palavra oculta
-    desenhartracos()
+    fazerTracos()
 
     
+
 }
 
 
@@ -92,6 +93,7 @@ function verificaTecla(e) {
                     
                     if (palavraOculta[i] === letra){
                         
+                        escreverLetraCerta(i)
                         vencer(letra)
 
                     }
@@ -102,7 +104,8 @@ function verificaTecla(e) {
 
                 if (!verificaLetra(e.key) && !vencer(letra)) return
                     
-                
+                FazerMelhor(erros)
+
                 fimJogo(letra)
                 
             }
