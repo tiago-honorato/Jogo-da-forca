@@ -97,14 +97,13 @@ function verificaTecla(e) {
                         vencer(letra)
 
                     }
-                    
                 }
 
             } else {
 
                 if (!verificaLetra(e.key) && !vencer(letra)) return
                     
-                FazerMelhor(erros)
+                FazerBoneco(erros)
 
                 fimJogo(letra)
                 
@@ -154,7 +153,7 @@ function vencer(letra) {
     if (letraEscolhida.length == palavraOculta.length) {
         
         //exibirVitoria()
-        console.log("Você venceu!")
+        alert("Você venceu!")
 
     }
 
@@ -165,13 +164,14 @@ function fimJogo(letra) {
         
         letrasErradas.push(letra)
 
-        if (letrasErradas.length > erros) {
+        if (letrasErradas.length > numeroErros) {
 
             //exibirDerrota()
-            console.log("Você perdeu!")
+            mostrarDerrota()
 
         } else if(letraEscolhida.length < palavraOculta.length){
 
+            escreverLetraErrada(letra, erros)
             addLetraIncorreta()
 
         }
@@ -180,3 +180,5 @@ function fimJogo(letra) {
 
 console.log("Palavra oculta: " + palavraOculta)
 console.log("Erros restantes: " + erros)
+
+mostrarDerrota()

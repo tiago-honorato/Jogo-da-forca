@@ -1,10 +1,10 @@
 //desenha a base do canvas
 function fazerCanvas() {
-    canvas.lineWidth= 8
-    canvas.lineCap="round"
-    canvas.lineJoin="round"
-    canvas.fillStyle= "#F3F5FC"
-    canvas.strokeStyle = "#0A3871"
+    canvas.lineWidth = 5
+    canvas.lineJoin = "round"
+    canvas.lineCap = "round"
+    canvas.fillStyle = "#ffffff"
+    canvas.strokeStyle = "#000000"
     canvas.fillRect(0,0,1200,800)
     canvas.beginPath();
     canvas.moveTo(650,500)
@@ -15,10 +15,10 @@ function fazerCanvas() {
 
 //desenha os traços de acordo com o tamanho da palavra oculta.
 function fazerTracos() {
-    canvas.lineWidth= 6
-    canvas.lineCap="round"
-    canvas.lineJoin="round"
-    canvas.strokeStyle = "#0A3871"
+    canvas.lineWidth = 5
+    canvas.lineJoin = "round"
+    canvas.lineCap = "round"
+    canvas.strokeStyle = "#000000"
     canvas.beginPath()
 
     let largura=600/palavraOculta.length
@@ -31,110 +31,98 @@ function fazerTracos() {
     canvas.stroke()
     canvas.closePath()
 }
-//...
-function escreverLetraCerta(index) {
-    canvas.font = 'bold 52px Inter';
-    canvas.lineWidth= 6
-    canvas.lineCap="round"
-    canvas.lineJoin="round"
-    canvas.fillStyle= "#0A3871"
+
+function escreverLetraCerta(i) {
+    canvas.font = "bold 40px Inter"
+    canvas.lineWidth = 5
+    canvas.lineJoin = "round"
+    canvas.lineCap = "round"
+    canvas.fillStyle = "#000000"
     let largura=600/palavraOculta.length
-    canvas.fillText(palavraOculta[index],505+(largura*index),620)
+    canvas.fillText(palavraOculta[i],505+(largura*i),635)
     canvas.stroke()
 }
 
-function fazerErrosForca(pontos) {
-    canvas.lineWidth= 8
-    canvas.lineCap="round"
-    canvas.lineJoin="round"
-    canvas.strokeStyle = "#0A3871"
-    if(pontos===8){
-    //poste lateral
-    canvas.moveTo(700,500)
-    canvas.lineTo(700,100)
-    }
-    if(pontos===7){//teto 
-    canvas.moveTo(850,100)
-    canvas.lineTo(700,100)
-    }
-    if(pontos===6){//corda
-    canvas.moveTo(850,100)
-    canvas.lineTo(850,171)
-    }
-    if(pontos===5){//para cabeça
-    canvas.moveTo(900,230)
-    canvas.arc(850,230,50,0,Math.PI*2)
-    }
-    if(pontos===4){//para corpo
-    canvas.moveTo(850,389)
-    canvas.lineTo(850,289)
-    }
-    if(pontos===3){//para perna esquerda
-    canvas.moveTo(850,389)
-    canvas.lineTo(800,450)
-    }
-    if(pontos===2){//para perna direita
-    canvas.moveTo(850,389)
-    canvas.lineTo(890,450)
-    }
-    if(pontos===1){//para mão esquerda
-    canvas.moveTo(850,330)
-    canvas.lineTo(800,389)
-    }
-    if(pontos===0){//para mão direita
-    canvas.moveTo(850,330)
-    canvas.lineTo(890,389)
-    }
-    canvas.stroke()
-    canvas.closePath()
-  }
+function escreverLetraErrada(letra, errosRestantes) {
+    canvas.lineWidth = 5
+    canvas.font = "bold 35px Inter"
+    canvas.lineJoin = "round"
+    canvas.lineCap = "round"
+    canvas.fillStyle = "#000000"
+    canvas.fillText(letra,535+(40*(10-errosRestantes)),710,40)
+}
 
-function FazerMelhor(pontos) {
-    canvas.lineWidth= 8
-    canvas.lineCap="round"
-    canvas.lineJoin="round"
-    canvas.strokeStyle = "#0A3871"
+function mostrarDerrota() {
+    canvas.font = "bold 40px Inter"
+    canvas.lineCap = "round"
+    canvas.fillStyle = "red"
+    canvas.lineJoin = "round"
+    canvas.fillText("Você perdeu!",930,320)
+}
 
-    switch (pontos) {
-        case 8:
+function FazerBoneco(erros) {
+    canvas.lineWidth = 5
+    canvas.lineJoin = "round"
+    canvas.lineCap = "round"
+    canvas.strokeStyle = "#000000"
+
+    switch (erros) {
+        case 8://forca
 
             canvas.moveTo(700,500)
             canvas.lineTo(700,100)
-
             break;
     
-        case 7:
+        case 7://cima
 
             canvas.moveTo(850,100)
             canvas.lineTo(700,100)
-
             break;
 
-        case 6:
+        case 6://corda
 
             canvas.moveTo(850,100)
-            canvas.lineTo(850,171)
+            canvas.lineTo(850,180)
 
             break;
-
-        case 5:
+        case 5://cabeça
 
             canvas.moveTo(900,230)
             canvas.arc(850,230,50,0,Math.PI*2)
-
             break;
 
-        case 4:
+        case 4://corpo
+                        //width//height
+            canvas.moveTo(850,389)
+            canvas.lineTo(850,280)
+            break;
+
+        case 3://braço esquerda
+
+            canvas.moveTo(850,300)
+            canvas.lineTo(800,389)
+            break;
+
+        case 2://braço direita
+
+            canvas.moveTo(850,300)
+            canvas.lineTo(890,389)
+            break;
+
+        case 1://perna esquerdo
 
             canvas.moveTo(850,389)
-            canvas.lineTo(850,289)
-
+            canvas.lineTo(800,450)
             break;
 
-        case 3:
-
+        case 0://perna direito
             
-
+            canvas.moveTo(850,389)
+            canvas.lineTo(890,450)
             break;
     }
+
+    canvas.stroke()
+
+    canvas.closePath()
 }
