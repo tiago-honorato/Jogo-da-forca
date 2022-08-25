@@ -33,10 +33,8 @@ function fazerTracos() {
 }
 
 function escreverLetraCerta(i) {
-    canvas.font = "bold 40px Inter"
+    canvas.font = "bold 40px sans-serif"
     canvas.lineWidth = 5
-    canvas.lineJoin = "round"
-    canvas.lineCap = "round"
     canvas.fillStyle = "#000000"
     let largura=600/palavraOculta.length
     canvas.fillText(palavraOculta[i],505+(largura*i),635)
@@ -45,19 +43,35 @@ function escreverLetraCerta(i) {
 
 function escreverLetraErrada(letra, errosRestantes) {
     canvas.lineWidth = 5
-    canvas.font = "bold 35px Inter"
-    canvas.lineJoin = "round"
-    canvas.lineCap = "round"
+    canvas.font = "bold 35px sans-serif"
     canvas.fillStyle = "#000000"
     canvas.fillText(letra,535+(40*(10-errosRestantes)),710,40)
 }
 
-function mostrarDerrota() {
-    canvas.font = "bold 40px Inter"
-    canvas.lineCap = "round"
+function mostrarVenceu() {
+
+    canvas.beginPath()
+    canvas.fillStyle = "black" 
+    canvas.strokeRect(940, 280, 245, 55)
+    canvas.closePath()
+    
+    canvas.font = "bold 35px sans-serif"
+    canvas.fillStyle = "green"
+    canvas.fillText("Você venceu!",950,320)
+    //setTimeout( recarregar , 1000)
+}
+
+function mostrarGameOver() {
+
+    canvas.beginPath()
+    canvas.fillStyle = "black" 
+    canvas.strokeRect(920, 280, 200, 55)
+    canvas.closePath()
+
+    canvas.font = "bold 35px sans-serif"
     canvas.fillStyle = "red"
-    canvas.lineJoin = "round"
-    canvas.fillText("Você perdeu!",930,320)
+    canvas.fillText("GameOver",930,320)
+
 }
 
 function FazerBoneco(erros) {

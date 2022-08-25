@@ -1,5 +1,5 @@
 //palavras da forca.
-var palavras = ["MONITOR","CADEIRA","PIPOCA","PAREDE","HORA","PROGRAMA","MICROFONE"]
+var palavras = ["MONITOR","CADEIRA","TECLADO","MOUSE","EDITOR","PROGRAMA","MICROFONE","VARIAVEL", "CONSTANTE"]
 //variavel para desenhar no canvas.
 var canvas = document.getElementById("forca").getContext("2d")
 
@@ -17,6 +17,11 @@ var numeroErros = 8
 var letraEscolhida = []
 // numero de letras erradas permitidas
 var erros = 8
+
+//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+document.getElementById("btn-teste") = () => {
+    startGame()
+}
 
 startGame()
 
@@ -153,7 +158,7 @@ function vencer(letra) {
     if (letraEscolhida.length == palavraOculta.length) {
         
         //exibirVitoria()
-        alert("Você venceu!")
+        mostrarVenceu()
 
     }
 
@@ -166,8 +171,7 @@ function fimJogo(letra) {
 
         if (letrasErradas.length > numeroErros) {
 
-            //exibirDerrota()
-            mostrarDerrota()
+            mostrarGameOver()
 
         } else if(letraEscolhida.length < palavraOculta.length){
 
@@ -180,5 +184,3 @@ function fimJogo(letra) {
 
 console.log("Palavra oculta: " + palavraOculta)
 console.log("Erros restantes: " + erros)
-
-mostrarDerrota()
