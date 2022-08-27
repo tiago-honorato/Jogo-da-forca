@@ -1,0 +1,61 @@
+body{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  background: #ffffff;
+}
+/*tela principal*/
+.home{
+  position: absolute;
+  left: 650px;
+  top: 430px;
+}
+.btn-esquerdo, .btn-direito{/*aplica em todos*/
+  position: absolute;
+  background-color: rgb(219, 219, 219);
+  font-weight: bold;
+  border-radius: 10px;
+}
+.btn-esquerdo{
+  width: 150px;
+  height: 50px;
+}
+.btn-direito{
+  left: 200px;
+  width: 150px;
+  height: 50px;
+}
+.btn-esquerdo:hover, .btn-direito:hover{/*aplica em todos*/
+  cursor: pointer;
+  background-color: rgb(209, 209, 209);
+}
+
+/*tela forca*/
+.canvas{
+  margin-left: 2.5rem;
+  width: 1024px;
+  height:800px
+}
+.botoes-div-canvas{
+  position: absolute;
+  left: 650px;
+  top: 525px;
+}
+/*tela adicionar palavra*/
+.botoes-div{
+  position: absolute;
+  left: 650px;
+  top: 525px;
+}
+.text-input{
+  position: absolute;
+  background-color: rgb(219, 219, 219);
+  font-weight: bold;
+  border-radius: 10px;
+  width: 340px;
+  height: 50px;
+  left: 650px;
+  top: 430px;
+}

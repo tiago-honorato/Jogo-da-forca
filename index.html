@@ -9,12 +9,55 @@
     <title>Projeto Forca</title>
 </head>
 <body>
-    
+    <!--tela inicial-->
     <div id="opacidade" class="home">
-        <button id="btn-teste">Jogar</button>
+
+        <a href="#jogando">
+
+            <input class="btn-esquerdo" type="submit" value="Jogar" id="iniciar-jogo">
+
+        </a>
+
+        <button class="btn-direito" id="nova-palavra" onclick="mostrarAdicionarPalavra()">Adicionar palavra</button> 
+
     </div>
 
-    <canvas id="forca" height="860px" width="1200"></canvas>
+    <!--tela adicionar palavra-->
+    <div id= "adc-palavra" class="palavra-nova">
+
+        <input class="text-input" type="text" id="input-nova-palavra"  maxlength="8" placeholder="Escreva a palavra(max: 8 caract.)">
+
+        <div class="botoes-div">
+
+            <input class="btn-esquerdo" type="submit" value="Salvar" id="btn-salvar">
+            <input class="btn-direito" type="submit" value="Cancelar" id="btn-cancelar">
+
+        </div>
+
+    </div>
+
+    <!--tela forca-->
+    <div id="div-aparece-forca" class="canvas">
+
+        <canvas id="forca" height="860px" width="1200"></canvas>  
+
+        <div class="botoes-div-canvas">
+
+            <input class="btn-esquerdo" type="submit" value="Novo Jogo" id="btn-novo-jogo">
+            <input class="btn-direito" type="submit" value="Sair" id="btn-sair">
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
 
 </body>
     <script src="scripts/script.js" defer></script>

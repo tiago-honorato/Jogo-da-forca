@@ -1,5 +1,5 @@
 //palavras da forca.
-var palavras = ["MONITOR","CADEIRA","TECLADO","MOUSE","EDITOR","PROGRAMA","MICROFONE","VARIAVEL", "CONSTANTE"]
+var palavras = ["MONITOR","CADEIRA","TECLADO","MOUSE","EDITOR","PROGRAMA","MICROFONE","VARIAVEL","CONSTANTE","INTERNET","ROBO"]
 //variavel para desenhar no canvas.
 var canvas = document.getElementById("forca").getContext("2d")
 
@@ -18,14 +18,28 @@ var letraEscolhida = []
 // numero de letras erradas permitidas
 var erros = 8
 
-//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-document.getElementById("btn-teste") = () => {
-    startGame()
-}
+var btnSalvar = document.getElementById("btn-salvar")
+var btnCancelar = document.getElementById("btn-cancelar")
+var btnNovoJogo = document.getElementById("btn-novo-jogo")
+var btnSair = document.getElementById("btn-sair")
+var inpNovaPalavra = document.getElementById("input-nova-palavra")
 
-startGame()
+//já inicia com display none: VE SE PODE BOTAR SAS POARH NO CSS
+btnSalvar.style.display = "none"
+btnCancelar.style.display = "none"
+btnNovoJogo.style.display = "none"
+btnSair.style.display = "none"
+inpNovaPalavra.style.display = "none"
+
 
 function startGame() {
+
+    //desaparece botões tela principal
+    document.getElementById("opacidade").style.display = "none"
+
+    //mostra os botões da tela da forca
+    btnNovoJogo.style.display = "block"
+    btnSair.style.display = "block"
 
     //sorteia a palavra a ser descoberta
     escolhePalavraOculta()
@@ -36,17 +50,59 @@ function startGame() {
     //cria os espaços da palavra oculta
     fazerTracos()
 
-    
+    document.addEventListener("keydown", verificaTecla)
+
+
+}
+//inicia o jogo ao clicar no botão Jogar
+document.getElementById("iniciar-jogo").addEventListener("click", startGame)
+
+//salva a palavra digitada
+btnSalvar.addEventListener("click", salvaPalavra)
+
+btnNovoJogo.addEventListener("click", recarrega)
+
+btnSair.addEventListener("click", recarrega)
+
+btnCancelar.addEventListener("click", recarrega)
+
+//recarrega a página
+function recarrega() {
+
+    location.reload()
 
 }
 
+//oculta tela principal e mostra tela de adicionar palavra.
+function mostrarAdicionarPalavra() {
 
+    document.getElementById("adc-palavra").style.display = "block";    
+    document.getElementById("opacidade").style.display = 'none';
 
+    btnCancelar.style.display = 'block';
+    btnSalvar.style.display = 'block';
+    inpNovaPalavra.style.display = 'block';
+}
 
+//salva palavra escrita.
+function salvaPalavra() {
+    
+    let palavraX = document.getElementById('input-nova-palavra').value;
 
+    if(palavraX !== ""){
 
+        palavras.push(palavraX.toUpperCase());
+        alert('Adicionado!')
+        
+        document.getElementById("adc-palavra").style.display = "none";
 
+        startGame();
+    }
+    else{
+        alert("Digite uma palavra!")
+    }
 
+}
 
 //escolhe aleatoriamente a palavra a ser descoberta.
 function escolhePalavraOculta() {
@@ -69,19 +125,11 @@ function verificaTeclaLetra(key) {
 
 }
 
-
-//verifica se alguma tecla foi pressionada e chama a função verificaTecla
-document.addEventListener("keydown", verificaTecla)
-
 //função principal
 function verificaTecla(e) {
     let letra = e.key.toUpperCase()
 
     console.log("palavra Certa: " + palavraCerta)
-    console.log("Letras: " + letras)
-    console.log("Letras erradas: " + letrasErradas)
-    console.log("Letras escolhidas: " + letraEscolhida)
-    console.log("Numero de erros: " + numeroErros)
     verificaTeclaLetra(e.which)
 
     //se o jogador tem 8 ou menos erros.
@@ -117,7 +165,7 @@ function verificaTecla(e) {
         
     } else{
 
-        alert("Você atingiu o limíte de letras incorretas")
+        alert("Todas as chances esgotadas!")
 
     }
 }
@@ -157,7 +205,6 @@ function vencer(letra) {
     //é "letraEscolhida" pq pode ter letra repetida, senão poderia ser "palavraCerta"
     if (letraEscolhida.length == palavraOculta.length) {
         
-        //exibirVitoria()
         mostrarVenceu()
 
     }
@@ -181,6 +228,3 @@ function fimJogo(letra) {
         }
     }
 }
-
-console.log("Palavra oculta: " + palavraOculta)
-console.log("Erros restantes: " + erros)
