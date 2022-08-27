@@ -148,7 +148,7 @@ function verificaTecla(e) {
                         
                         escreverLetraCerta(i)
                         vencer(letra)
-
+                        
                     }
                 }
 
