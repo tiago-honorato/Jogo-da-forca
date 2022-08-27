@@ -31,7 +31,6 @@ btnNovoJogo.style.display = "none"
 btnSair.style.display = "none"
 inpNovaPalavra.style.display = "none"
 
-
 function startGame() {
 
     //desaparece botões tela principal
@@ -51,7 +50,6 @@ function startGame() {
     fazerTracos()
 
     document.addEventListener("keydown", verificaTecla)
-
 
 }
 //inicia o jogo ao clicar no botão Jogar
@@ -129,7 +127,6 @@ function verificaTeclaLetra(key) {
 function verificaTecla(e) {
     let letra = e.key.toUpperCase()
 
-    console.log("palavra Certa: " + palavraCerta)
     verificaTeclaLetra(e.which)
 
     //se o jogador tem 8 ou menos erros.

@@ -31,7 +31,7 @@ function fazerTracos() {
     canvas.stroke()
     canvas.closePath()
 }
-
+//escreve as letras certam sobre os traços
 function escreverLetraCerta(i) {
     canvas.font = "bold 40px sans-serif"
     canvas.lineWidth = 5
@@ -40,7 +40,7 @@ function escreverLetraCerta(i) {
     canvas.fillText(palavraOculta[i],505+(largura*i),635)
     canvas.stroke()
 }
-
+//escreve as letras erradas em baixo dos traços
 function escreverLetraErrada(letra, errosRestantes) {
     canvas.lineWidth = 5
     canvas.font = "bold 35px sans-serif"
@@ -58,7 +58,7 @@ function mostrarVenceu() {
     canvas.font = "bold 35px sans-serif"
     canvas.fillStyle = "green"
     canvas.fillText("Você venceu!",950,320)
-    //setTimeout( recarregar , 1000)
+    setTimeout( recarrega , 1500)
 }
 
 function mostrarGameOver() {
@@ -137,6 +137,5 @@ function FazerBoneco(erros) {
     }
 
     canvas.stroke()
-
     canvas.closePath()
 }
