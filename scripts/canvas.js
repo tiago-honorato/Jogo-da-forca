@@ -106,30 +106,30 @@ function FazerBoneco(erros) {
             break;
 
         case 4://corpo
-                        //width//height
+                        
             canvas.moveTo(850,389)
             canvas.lineTo(850,280)
             break;
 
-        case 3://braço esquerda
+        case 3://braço esquerdo
 
             canvas.moveTo(850,300)
             canvas.lineTo(800,389)
             break;
 
-        case 2://braço direita
+        case 2://braço direito
 
             canvas.moveTo(850,300)
             canvas.lineTo(890,389)
             break;
 
-        case 1://perna esquerdo
+        case 1://perna esquerda
 
             canvas.moveTo(850,389)
             canvas.lineTo(800,450)
             break;
 
-        case 0://perna direito
+        case 0://perna direita
             
             canvas.moveTo(850,389)
             canvas.lineTo(890,450)
