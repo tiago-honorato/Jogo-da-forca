@@ -24,7 +24,6 @@ var btnNovoJogo = document.getElementById("btn-novo-jogo")
 var btnSair = document.getElementById("btn-sair")
 var inpNovaPalavra = document.getElementById("input-nova-palavra")
 
-//já inicia com display none: VE SE PODE BOTAR SAS POARH NO CSS
 btnSalvar.style.display = "none"
 btnCancelar.style.display = "none"
 btnNovoJogo.style.display = "none"
