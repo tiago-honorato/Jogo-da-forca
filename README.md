@@ -6,13 +6,13 @@
 <img src="x" />
 </div>
 
-<h2>O jogo permite:</h2>
+<h2>O jogo:</h2>
 
-**•Adição de novas palavras**
+**•Descubra a palavra sorteada aleatoriamente digitando as letras no teclado**
 
-**•x**
+**•Permite adição de novas palavras**
 
-**•x**
+**•Utiliza o Canvas para a parte gráfica**
 
 <h3>Tecnologias utilizadas:</h3>
 
