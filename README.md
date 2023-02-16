@@ -20,7 +20,7 @@
 
 **•Permite adição de novas palavras**
 
-**•Utiliza o Canvas para a parte gráfica**
+**•Utiliza o Canvas para criar a interface**
 
 <h3>Tecnologias utilizadas:</h3>
 
