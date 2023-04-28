@@ -24,10 +24,10 @@
 
 <h3>Tecnologias utilizadas:</h3>
 
-`◽JavaScript`
+`-JavaScript`
 
-`◽HTML`
+`-HTML`
 
-`◽CSS`
+`-CSS`
 
-`◽Visual Studio Code`
+`-Visual Studio Code`
