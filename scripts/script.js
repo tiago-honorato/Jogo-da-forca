@@ -1,5 +1,5 @@
 //palavras da forca.
-var palavras = ["tiaguete"]
+var palavras = ["microfone","monitor","cadeira", "computador", "codigo"]
 //variavel para desenhar no canvas.
 var canvas = document.getElementById("forca").getContext("2d")
 
